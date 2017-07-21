@@ -16,6 +16,7 @@ import { RootRoutingModule } from './root-routing.module';
 import { RouteTestModule } from '../route-test-module';
 import { UserService } from '../user-management';
 import { UsersModule } from '../user-management';
+import { NavigationModule } from '../navigation';
 
 // We can use this custom URL handling strategy to tell the Angular 2 router to handle only URL starting with 'v2'.
 /*
@@ -36,6 +37,7 @@ export class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
     // import Angular 2 modules/Directives here ...
     RouteTestModule,
     UsersModule,
+    NavigationModule,
 
     // import the root routing module.
     RootRoutingModule
@@ -52,4 +54,5 @@ export class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
 })
 export class RootModule {
   constructor(public upgrade: UpgradeModule){}
+ // public ngDoBootstrap(){}
 }
