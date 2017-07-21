@@ -104,12 +104,12 @@ export class UserControlsCmp {
 
 }
 
+UserControlsCmp.$inject = ['$scope', 'UserService'];
+
 UsersModule
-  .directive('userControls', [function () {
-    return {
-      restrict: 'E',
+  .component('userControls', {
       controllerAs: 'userCtrl',
       template: require('./user-controls.html'),
-      controller: ['$scope', 'UserService', UserControlsCmp]
-    };
-  }]);
+      controller: UserControlsCmp
+    }
+  );
