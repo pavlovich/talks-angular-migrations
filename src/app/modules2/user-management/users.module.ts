@@ -1,4 +1,8 @@
 
-import * as angular from 'angular';
+import { UserService } from './user.service';
+import {NgModule} from "@angular/core";
 
-export const UsersModule = angular.module('UsersModule', []);
+@NgModule({
+  providers: [UserService]
+})
+export class UsersModule{}

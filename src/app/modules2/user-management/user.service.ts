@@ -1,19 +1,15 @@
 
-import { UsersModule } from './users.module';
 
-UsersModule
-  .factory('UserService', [function(){
-    return new UserService();
-  }]);
+import {Injectable} from "@angular/core";
 
 export class User {
-  constructor(email, password) {
-    this.email = email;
-    this.password = password;
-  }
+  constructor(public email: string, public password: string) {}
 }
 
+@Injectable()
 export class UserService {
+  currentUser: User;
+
   constructor() {
     this.currentUser = null;
   }
