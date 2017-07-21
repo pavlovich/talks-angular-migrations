@@ -14,6 +14,7 @@ import { BlankCmp } from './blank.component';
 import { RootCmp } from './root.component';
 import { RootRoutingModule } from './root-routing.module';
 import { RouteTestModule } from '../route-test-module';
+import { UsersModule } from '../user-management';
 
 // We can use this custom URL handling strategy to tell the Angular 2 router to handle only URL starting with 'v2'.
 /*
@@ -33,6 +34,7 @@ export class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
 
     // import Angular 2 modules/Directives here ...
     RouteTestModule,
+    UsersModule,
 
     // import the root routing module.
     RootRoutingModule
