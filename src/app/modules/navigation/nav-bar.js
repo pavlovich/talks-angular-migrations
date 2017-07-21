@@ -6,28 +6,22 @@ import './nav-bar.css';
 
 import { NavigationModule } from './navigation.module';
 
+export class NavBarCmp {
+  constructor($location) {
+    this.locationService = $location;
+  }
+
+  isActive(testLocation) {
+    return testLocation === this.locationService.path();
+  }
+}
+
+NavBarCmp.$inject = ['$location'];
+
 NavigationModule
-  .directive('navBar', function NavBarCmpImpl() {
-      return {
-        template: require('./nav-bar.html'),
-        controllerAs: 'navCtrl',
-        controller: ['$location',
-          function ($location) {
-            let navCtrl = this;
-
-            navCtrl.locationService = $location;
-
-            Object.assign(navCtrl, {
-
-              isActive: function (testLocation) {
-                return testLocation === navCtrl.locationService.path();
-              }
-
-            });
-
-          }
-        ]
-      }
-    });
-
-export const NavBarCmp = 'NavBarCmp';
+  .component('navBar',  {
+      template: require('./nav-bar.html'),
+      controllerAs: 'navCtrl',
+      controller: NavBarCmp
+    }
+  );
