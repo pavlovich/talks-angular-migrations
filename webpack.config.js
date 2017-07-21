@@ -6,6 +6,7 @@ const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ngtools = require('@ngtools/webpack');
 
 const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
 
@@ -24,6 +25,13 @@ module.exports = function makeWebpackConfig() {
    * This is the object where all configuration gets set
    */
   let config = {};
+
+  config.resolve = {
+    extensions: ['.ts', '.js'],
+      alias: {
+      "@angular/upgrade/static": "@angular/upgrade/bundles/upgrade-static.umd.js"
+    }
+  };
 
   /**
    * Entry
@@ -84,6 +92,10 @@ module.exports = function makeWebpackConfig() {
   // Initialize module
   config.module = {
     rules: [
+      {
+        test: /\.ts$/,
+        loader: '@ngtools/webpack'
+      },
       {
       // JS LOADER
       // Reference: https://github.com/babel/babel-loader
@@ -167,6 +179,10 @@ module.exports = function makeWebpackConfig() {
    * List: http://webpack.github.io/docs/list-of-plugins.html
    */
   config.plugins = [
+    new ngtools.AotPlugin({
+      tsConfigPath: './tsconfig.json'
+    }),
+    
     new webpack.LoaderOptionsPlugin({
       test: /\.scss$/i,
       options: {
