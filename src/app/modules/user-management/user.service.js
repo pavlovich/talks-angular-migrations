@@ -3,58 +3,57 @@ import { UsersModule } from './users.module';
 
 UsersModule
   .factory('UserService', [function(){
-    return new UserServiceImpl();
+    return new UserService();
   }]);
 
-function User (email, password){
-  this.email = email;
-  this.password = password;
+export class User {
+  constructor(email, password) {
+    this.email = email;
+    this.password = password;
+  }
 }
 
-function UserServiceImpl (){
-  let svc = this;
-  svc.currentUser = null;
+export class UserService {
+  constructor() {
+    this.currentUser = null;
+  }
 
-  Object.assign(svc, {
-    createAccount: function(email, password){
-      svc.currentUser = new User(email, password);
-      return svc.currentUser;
-    },
-  
-    login: function(email, password){
-      svc.currentUser = new User(email, password);
-      return svc.currentUser;
-    },
-  
-    logout: function(){
-      svc.currentUser = null;
-      return true;
-    },
-  
-    changePassword: function(email, pasword, newPassword){
-      svc.currentUser.password = newPassword;
-      return svc.currentUser;
-    },
-  
-    resetPassword: function(email){
-      alert('Reset password here!');
-      return true;
-    },
-  
-    getCurrentUser: function(){
-      return svc.currentUser;
-    },
-  
-    getCurrentUserEmail: function(){
-      let user = svc.getCurrentUser();
-      return user ? user.email : null;
-    },
-  
-    isLoggedIn: function(){
-      return svc.currentUser !== null;
-    }
+  createAccount(email, password){
+    this.currentUser = new User(email, password);
+    return this.currentUser;
+  };
 
-  });
+  login(email, password){
+    this.currentUser = new User(email, password);
+    return this.currentUser;
+  };
+
+  logout(){
+    this.currentUser = null;
+    return true;
+  };
+
+  changePassword(email, pasword, newPassword){
+    this.currentUser.password = newPassword;
+    return this.currentUser;
+  };
+
+  resetPassword(email){
+    alert('Reset password here!');
+    return true;
+  };
+
+  getCurrentUser(){
+    return this.currentUser;
+  };
+
+  getCurrentUserEmail(){
+    let user = this.getCurrentUser();
+    return user ? user.email : null;
+  };
+
+  isLoggedIn(){
+    return this.currentUser !== null;
+  }
+
 }
-
-export const UserService = 'UserService';
