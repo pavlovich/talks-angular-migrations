@@ -14,6 +14,7 @@ import { BlankCmp } from './blank.component';
 import { RootCmp } from './root.component';
 import { RootRoutingModule } from './root-routing.module';
 import { RouteTestModule } from '../route-test-module';
+import { UserService } from '../user-management';
 import { UsersModule } from '../user-management';
 
 // We can use this custom URL handling strategy to tell the Angular 2 router to handle only URL starting with 'v2'.
@@ -41,6 +42,7 @@ export class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
   ],
   entryComponents: [RootCmp],
   providers: [
+    UserService
     //  Uncomment the line below if you decide to use a prefix-based URL filtering strategy to limit the scope of URLs that the angular 2 router 'sees'.
     // { provide: UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy }
   ],

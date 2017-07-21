@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { UserControlsCmp } from './user-controls';
 
 @NgModule({
-  providers: [UserService]
+  providers: [],
   imports: [CommonModule, FormsModule],
   declarations: [UserControlsCmp],
   exports: [UserControlsCmp],
