@@ -12,6 +12,7 @@ import {RouterUpgradeInitializer} from '@angular/router/upgrade';
 // Import Angular modules/components from there respective files here ...
 import { RouteTestCmp } from './route-test.component';
 import { TestRoutingModule } from './route-test-routing.module';
+import { UsersModule } from '../user-management';
 
 // Declare our Angular 2 route test module.
 @NgModule({
@@ -21,7 +22,7 @@ import { TestRoutingModule } from './route-test-routing.module';
     UpgradeModule,
 
     // import Angular 2 modules/Directives here ...
-
+    UsersModule,
 
     // import the router module. Note that the Angular 2 router will collect all routes from all the registered modules.
     TestRoutingModule
