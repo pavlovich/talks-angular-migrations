@@ -4,6 +4,17 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 
 import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
 
+// import { UpgradeComponent } from '@angular/upgrade/static';
+//
+// @Directive({
+//   selector: 'navbar'
+// })
+// export class NavBarCmp extends UpgradeComponent {
+//   constructor(elementRef: ElementRef, injector: Injector) {
+//     super('taskmasterNavBar', elementRef, injector);
+//   }
+// }
+
 @Component({
   selector: 'navbar',
   providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
