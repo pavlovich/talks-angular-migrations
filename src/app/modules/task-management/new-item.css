@@ -1,0 +1,11 @@
+
+body .tasks .new-task input {
+  box-sizing: border-box;
+  background: transparent;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+body .tasks .new-task input:focus {
+  background-color: #D3EFE3;
+}

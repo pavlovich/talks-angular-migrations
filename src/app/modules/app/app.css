@@ -1,0 +1,11 @@
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #184531;
+  background: #266A4C linear-gradient(to bottom, #266A4C, #88D4B3 100%) fixed;
+}
+
+main {
+  font-family: Arial, Helvetica, sans-serif;
+}

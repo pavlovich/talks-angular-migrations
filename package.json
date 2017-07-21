@@ -1,0 +1,65 @@
+{
+  "name": "angular-migration",
+  "version": "1.0.0",
+  "description": "Example AngularJS -> Angular migration",
+  "scripts": {
+    "build": "rimraf dist && webpack --bail --progress --profile",
+    "server": "webpack-dev-server --history-api-fallback --inline --progress",
+    "test": "karma start",
+    "test-watch": "karma start --auto-watch --no-single-run",
+    "start": "npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pavlovich/angular-migration.git"
+  },
+  "author": "Peter Pavlovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pavlovich/angular-migration/issues"
+  },
+  "homepage": "https://github.com/pavlovich/angular-migration",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "~1.6.4",
+    "bootstrap": "^3.3.5",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.0",
+    "autoprefixer": "^6.0.3",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "bootstrap-loader": "^2.1.0",
+    "bootstrap-sass": "^3.3.7",
+    "copy-webpack-plugin": "4.0.1",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.7.1",
+    "imports-loader": "^0.7.0",
+    "istanbul-instrumenter-loader": "^1.0.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^1.1.0",
+    "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "2.0.1",
+    "node-libs-browser": "2.0.0",
+    "node-sass": "^4.5.2",
+    "null-loader": "^0.1.1",
+    "phantomjs-prebuilt": "^2.1.4",
+    "postcss-loader": "1.2.2",
+    "raw-loader": "^0.5.1",
+    "resolve-url-loader": "^2.0.2",
+    "rimraf": "^2.5.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
+    "webpack": "2.2.0",
+    "webpack-dev-server": "2.2.0"
+  }
+}

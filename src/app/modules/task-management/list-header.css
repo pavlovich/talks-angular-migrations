@@ -1,0 +1,15 @@
+
+body .tasks .task-list-header {
+  position: relative;
+  padding: 1px 1px 1px 10px;
+  background: linear-gradient(to bottom, #41B683, #88D4B3 100%);
+  border-bottom: #41B683 solid 2px;
+}
+body .tasks .task-list-header .filter {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+}
+body .tasks .task-list-header .filter label {
+  font-weight: normal;
+}

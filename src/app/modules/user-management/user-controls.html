@@ -1,0 +1,103 @@
+<div class="navbar-right navbar-text">
+
+  <login-buttons align="right" class="ng-scope">
+    <div></div>
+    <div id="login-buttons" class="login-buttons-dropdown-align-right">
+      <div class="login-link-and-dropdown-list" ng-class="{'login-form-forgot-password': 'userCtrl.showForgottenPasswordForm', 'login-form-create-account': 'userCtrl.showCreateAccountForm', 'login-form-sign-in': 'userCtrl.showLoginPasswordForm'}">
+        <a class="login-link-text" id="login-sign-in-link" ng-if="!userCtrl.isLoggedIn()" ng-click="userCtrl.openDropDown()">Sign in ▾</a>
+        <a class="login-link-text" id="login-name-link" ng-if="userCtrl.isLoggedIn()" ng-click="userCtrl.openDropDown()">
+          {{userCtrl.getCurrentUser().email}} ▾
+        </a>
+        <div id="login-dropdown-list" class="accounts-dialog" style="display: block;" ng-if="userCtrl.showDropDown">
+          <a class="login-close-text" ng-click="userCtrl.resetForms()">Close</a>
+          <div class="login-close-text-clear"></div>
+          <div class="login-form" ng-class="{'login-password-form': 'userCtrl.showCreateAccountForm', 'login-password-form': 'userCtrl.showLoginPasswordForm'}">
+            <forgotten-password-form ng-if="userCtrl.showForgottenPasswordForm">
+              <div id="forgot-password-email-label-and-input">
+                <label id="forgot-password-email-label" for="forgot-password-email">Email</label>
+                <input id="forgot-password-email" type="email" ng-model="userCtrl.email">
+              </div>
+              <div class="login-button login-button-form-submit" id="login-buttons-forgot-password" ng-click="userCtrl.resetPassword()">
+                Reset password
+              </div>
+            </forgotten-password-form>
+            <create-account-form ng-if="userCtrl.showCreateAccountForm">
+              <div id="login-email-label-and-input">
+                <label id="login-email-label" for="login-email">
+                  Email
+                </label>
+                <input id="login-email" type="email" ng-model="userCtrl.email">
+              </div>
+              <div id="login-password-label-and-input">
+                <label id="login-password-label" for="login-password">
+                  Password
+                </label>
+                <input id="login-password" type="password" ng-model="userCtrl.password" autocomplete="off"
+                       style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div class="login-button login-button-form-submit" id="login-buttons-password" ng-click="userCtrl.createAccount()">
+                Create account
+              </div>
+            </create-account-form>
+            <login-password-form ng-if="userCtrl.showLoginPasswordForm">
+              <div id="login-email-label-and-input">
+                <label id="login-email-label" for="login-email">
+                  Email
+                </label>
+                <input id="login-email" type="email" autocomplete="off" ng-model="userCtrl.email"
+                       style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div id="login-password-label-and-input">
+                <label id="login-password-label" for="login-password">
+                  Password
+                </label>
+                <input id="login-password" type="password" autocomplete="off" ng-model="userCtrl.password"
+                       style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div class="login-button login-button-form-submit" id="login-buttons-password" ng-click="userCtrl.login()">
+                Sign in
+              </div>
+            </login-password-form>
+            <change-password-form ng-if="userCtrl.showChangePasswordForm">
+              <div id="login-old-password-label-and-input">
+                <label id="login-old-password-label" for="login-old-password">
+                  Current Password
+                </label>
+                <input id="login-old-password" type="password" autocomplete="off" ng-model="userCtrl.password"
+                       style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div id="login-password-label-and-input">
+                <label id="login-password-label" for="login-password">
+                  New Password
+                </label>
+                <input id="login-password" type="password" ng-model="userCtrl.newPassword"
+                       style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div class="login-button login-button-form-submit" id="login-buttons-do-change-password" ng-click="userCtrl.changePassword()">
+                Change password
+              </div>
+            </change-password-form>
+            <logged-in-buttons ng-if="userCtrl.showLoggedInButtons">
+              <div class="login-button" id="login-buttons-open-change-password" ng-click="userCtrl.showChangePassword()">
+                Change password
+              </div>
+              <div class="login-button" id="login-buttons-logout" ng-click="userCtrl.logout()">
+                Sign out
+              </div>
+            </logged-in-buttons>
+            <div class="additional-link-container" ng-if="userCtrl.showForgottenPasswordForm || userCtrl.showCreateAccountForm">
+              <a id="back-to-login-link" class="additional-link" ng-click="userCtrl.showLoginPassword()">Sign in</a>
+            </div>
+            <div class="additional-link-container" ng-if="userCtrl.showLoginPasswordForm">
+              <a id="signup-link" class="additional-link" ng-click="userCtrl.showCreateAccount()">Create account</a>
+            </div>
+            <div class="additional-link-container" ng-if="userCtrl.showLoginPasswordForm">
+              <a id="forgot-password-link" class="additional-link" ng-click="userCtrl.showForgottenPassword()">Forgot password</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </login-buttons>
+
+</div>

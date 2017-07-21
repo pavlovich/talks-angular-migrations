@@ -1,0 +1,14 @@
+<li ng-click="itemCtrl.selectTask()"
+    ng-class="['task-item', {'can-update': itemCtrl.canUpdate(), 'selected-task': itemCtrl.isSelected(), 'checked': itemCtrl.task.checked, 'private': itemCtrl.task.personal}]">
+  <input ng-if="itemCtrl.canComplete()" ng-click="itemCtrl.toggleChecked($event)" type="checkbox" ng-model="itemCtrl.task.checked" class="toggle-checked"/>
+  <button ng-if="itemCtrl.canUpdate()" ng-click="itemCtrl.togglePersonal($event)" class="toggle-private">
+    <span ng-if="itemCtrl.task.personal">
+    Private</span>
+    <span ng-if="!itemCtrl.task.personal">
+    Public
+    </span>
+  </button>
+  <span class="text">{{itemCtrl.task.name}}</span>
+  <span class="email" ng-if="itemCtrl.task.owner">{{itemCtrl.task.owner}}</span>
+  <button class="delete-button" ng-if="itemCtrl.canDelete()" ng-click="itemCtrl.deleteTask()">&times;</button>
+</li>

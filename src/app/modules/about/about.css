@@ -1,0 +1,27 @@
+
+body .about {
+  position: relative;
+  margin: 0 auto -10px;
+  padding: 0px;
+  width: 90%;
+  max-width: 600px;
+  min-height: 100%;
+  background: #f1faf6;
+  border: #184531 solid 1px;
+}
+
+body .about .about-header {
+  position: relative;
+  padding: 1px 1px 1px 10px;
+  background: linear-gradient(to bottom, #41B683, #88D4B3 100%);
+  border-bottom: #41B683 solid 2px;
+}
+
+body .about h1 {
+  text-align: center;
+}
+
+body .about p {
+  text-align: center;
+  padding: 10px;
+}

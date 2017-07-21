@@ -1,0 +1,3 @@
+<form name="newTask" class="new-task" ng-if="newItemCtrl.loggedIn()" ng-submit="newItemCtrl.submitTask($event)">
+  <input type="text" name="text" placeholder="{{newItemCtrl.placeholderText()}}" autocomplete="off" ng-model="newItemCtrl.getSelectedTask().name"/>
+</form>

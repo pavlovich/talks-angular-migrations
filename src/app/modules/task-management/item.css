@@ -1,0 +1,58 @@
+
+body .tasks .task-item {
+  position: relative;
+  box-sizing: content-box;
+  padding: 15px;
+  height: 22px;
+  list-style: none;
+  background-color: white;
+  border-bottom: #41B683 solid 1px;
+  cursor: not-allowed;
+}
+body .tasks .task-item.can-update {
+  cursor: pointer;
+}
+body .tasks .task-item.selected-task {
+  background-color: #faffbb !important;
+}
+body .tasks .task-item.private {
+  background: #D3EFE3;
+  border-color: #266A4C;
+}
+body .tasks .task-item.checked {
+  background: #41B683;
+  border-bottom: #184531 1px solid;
+}
+body .tasks .task-item.checked .text {
+  text-decoration: line-through;
+  color: #266A4C;
+}
+body .tasks .task-item .toggle-checked {
+  margin-right: 5px;
+}
+body .tasks .task-item .toggle-private {
+  height: auto;
+  border-radius: 5%;
+  margin-right: 3px;
+  width: 60px;
+}
+body .tasks .task-item .email {
+  padding-left: 5px;
+  opacity: .40;
+}
+body .tasks .task-item .email:before {
+  content: "(";
+}
+body .tasks .task-item .email:after {
+  content: ")";
+}
+body .tasks .task-item .delete-button {
+  position: relative;
+  margin-top: -4px;
+  float: right;
+  font-weight: bold;
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
